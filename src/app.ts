@@ -1,12 +1,12 @@
 import express from "express";
 import { router } from "./router";
 import mysql from "mysql";
-import {db} from "@/database/sqlConnect"
+import { db } from "@/database/sqlConnect";
 
 const app: express.Application = express();
 const port = 9000;
-debugger
-db.connect();
+debugger;
+// db.connect();
 // add router
 for (const route of router) {
   app.use(route.getRouter());

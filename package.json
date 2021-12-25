@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "demo",
   "main": "app.ts",
-  "type": "module",
   "scripts": {
     "start": "nodemon src/app.ts",
     "build": "NODE_PATH=./ tsc --project ./"
