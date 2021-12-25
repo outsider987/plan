@@ -2,29 +2,31 @@ import { useState } from "react";
 import React, { createContext, useReducer, useContext } from "react";
 
 const initialState = {
-  name: "mary",
-  gender: 1,
+  standard: [],
+  premium: [],
 } as Name;
 const stateContext = createContext(initialState);
-const { Provider } = stateContext;
 
 interface Name {
-  name: string;
-  gender: number;
+  standard: [];
+  premium: [];
 }
-function nameManager() {
+function listManager() {
   const state = useContext(stateContext);
   const [adult, setCount] = useState<Name>(state);
 
   const setname = () => {
-    setCount({ ...adult, name: (adult.name = "test") });
+    // setCount({ ...adult, name: (adult.name = "test") });
     // setCount((adult) => (...adult));
   };
-  const getData = () => {
-    return state.gender;
+  const getStandardData = () => {
+    return state.premium;
+  };
+  const getPremiumData = () => {
+    return state.premium;
   };
 
   return { adult, setname };
 }
 
-export default nameManager;
+export default listManager;

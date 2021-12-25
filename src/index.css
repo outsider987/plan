@@ -16,3 +16,7 @@ code {
     monospace;
 }
 
+
+.content__layout{
+  @apply grid;
+}

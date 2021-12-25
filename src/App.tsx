@@ -12,10 +12,16 @@ function App() {
   const { adult, setname } = nameManager();
   const { cardState } = cardManager();
   const { otherState } = otherManager();
-  render(){  return (
+  return (
     <div className="App">
       <Header></Header>
-      
+      <div className="grid grid-cols-3 w-full">
+        <div className="content__layout">
+          <div></div>
+        </div>
+        <div className="content__layout">2</div>
+        <div className="content__layout">3</div>
+      </div>
       {/* <button onClick={setname}>button</button>
       <div> {adult.name}</div>
       <div className="w-full">
@@ -27,8 +33,7 @@ function App() {
 
       <button> </button> */}
     </div>
-  );}
- 
+  );
 }
 
 export default App;
