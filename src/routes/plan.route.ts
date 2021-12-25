@@ -1,4 +1,4 @@
-import PlanController from "~/controllers/PlanController";
+import PlanController from "@/controllers/PlanController";
 import Route from "./route";
 
 class AuthRoute extends Route {
