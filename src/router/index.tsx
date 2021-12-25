@@ -8,12 +8,12 @@ const App = loadable({
   loader: () => import("~/App"),
   loading: LoadingComponent,
 });
-const Edit = loadable({
-  loader: () => import("~/views/Edit/Edit"),
+const Standard = loadable({
+  loader: () => import("~/views/Standard"),
   loading: LoadingComponent,
 });
-const Edit2 = loadable({
-  loader: () => import("~/views/Edit/Edit2"),
+const Premium = loadable({
+  loader: () => import("~/views/Premium"),
   loading: LoadingComponent,
 });
 
@@ -31,15 +31,12 @@ function HomeRoute() {
       // ]
     },
     {
-      path: "edit",
-      element: <Edit />,
-      children: [
-        {
-          path: "edit2",
-          element: <Edit2 />,
-        },
-      ],
-      // element: <Edit/>
+      path: "standard",
+      element: <Standard />,
+    },
+    {
+      path: "premium",
+      element: <Premium />,
     },
   ]);
 
