@@ -1,0 +1,25 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": ["http"],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/planField": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}
