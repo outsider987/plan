@@ -9,6 +9,7 @@ import { render } from "@testing-library/react";
 import Spin from "./components/Spin";
 import PlanField from "./components/PlanField";
 import PlanList from "./components/PlanList";
+import Modal from "./components/Modal";
 
 function App() {
   const { planState, getStandardData, getPlansData } = listManager();
@@ -28,7 +29,10 @@ function App() {
         className={`grid border border-black rounded-2xl m-10  `}
         style={planLayoutStyle}
       >
-        <Spin toggle={planState.isLoading}></Spin>
+        <Modal toggle={planState.isLoading}>
+          <Spin></Spin>
+        </Modal>
+
         <Header></Header>
         <div className="grid grid-cols-3 w-full  p-4  ">
           <PlanField fileds={planState.Fields} />
