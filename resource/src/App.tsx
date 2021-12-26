@@ -6,6 +6,7 @@ import listManager from "./store";
 
 import Header from "./components/Header";
 import { render } from "@testing-library/react";
+import Spin from "./components/Spin";
 
 function App() {
   const { planState, getStandardData } = listManager();
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <Spin toggle={planState.isLoading}></Spin>
       <Header></Header>
       <div className="grid grid-cols-3 w-full">
         <div className="content__layout">
