@@ -1,8 +1,11 @@
+import { PlanModel } from "@/models/PlanModel";
 import { Request, Response } from "express";
 
 class PlanController {
-  echo(req: Request, res: Response) {
-    res.send("echo");
+  async getPlanField(req: Request, res: Response) {
+    const planModal = await new PlanModel();
+    const dates = await planModal.getPlanField();
+    await res.send(dates);
   }
 }
 
