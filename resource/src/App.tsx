@@ -13,8 +13,6 @@ function App() {
     getStandardData();
   }, []);
 
-  // const t = planState.Fields.map((list) => <div>{list}</div>);
-  // console.log;
   return (
     <div className="App">
       <Header></Header>

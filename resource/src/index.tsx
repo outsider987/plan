@@ -17,22 +17,6 @@ import { HomeRoute } from "~/router/index";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <Suspense fallback={<div>Loading...</div>}>
-        <Routes >
-          {routes.map((route, index) => {
-            return (
-              < Route
-                path={route.path}
-                element={<route.component />}
-              />
-
-            )
-          })
-          }
-          
-        </Routes>
-      </Suspense> */}
-
       <HomeRoute />
     </BrowserRouter>
   </React.StrictMode>,
