@@ -1,9 +1,14 @@
 import React from "react";
 import { Name, Plan } from "~/store/index";
+import { useNavigate } from "react-router-dom";
 interface PropPlan {
   plan: Plan;
 }
 const PlanList: React.FC<PropPlan> = ({ plan }) => {
+  let navigate = useNavigate();
+  function handleClick(path: string) {
+    navigate(`${path}`);
+  }
   return (
     <div
       className={`content__layout ${
@@ -37,6 +42,7 @@ const PlanList: React.FC<PropPlan> = ({ plan }) => {
         {plan.others ? "O" : "X"}
       </span>
       <option
+        onClick={() => handleClick(plan.name)}
         className={`${
           plan.name === "standard" ? " bg-blue-900" : "bg-orange-900"
         } text-3xl font-bold text-white m-4  p-4 cursor-pointer rounded-md`}

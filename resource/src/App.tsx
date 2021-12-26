@@ -14,10 +14,9 @@ function App() {
   const { planState, getStandardData, getPlansData } = listManager();
   useEffect(() => {
     getStandardData();
-  }, []);
-  useEffect(() => {
     getPlansData();
   }, []);
+
   const planLayoutStyle = {
     gridTemplateRows: "10fr 90fr",
     height: "-webkit-fill-available",

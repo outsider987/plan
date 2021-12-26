@@ -15,7 +15,6 @@ export interface Plan {
   physiotherapy: boolean;
   others: boolean;
 }
-
 const initialState = {
   plans: [] as Plan[],
   Fields: [],
@@ -27,9 +26,10 @@ function listManager() {
   const state = useContext(stateContext);
   const [planState, setPlanState] = useState<Name>(state);
 
-  const getStandardData = () => {
-    setLoading();
-    axios
+  const getStandardData = async () => {
+    await setLoading();
+    await sleep(3000);
+    await axios
       .get("planField")
       .then((res) => {
         console.log(res);
@@ -44,9 +44,10 @@ function listManager() {
         console.log(error);
       });
   };
-  const getPlansData = () => {
-    setLoading();
-    axios
+  const getPlansData = async () => {
+    await setLoading();
+    await sleep(3000);
+    await axios
       .get("plans")
       .then((res) => {
         console.log(res);
@@ -68,6 +69,9 @@ function listManager() {
       isLoading: (planState.isLoading = true),
     });
   };
+  function sleep(time: number) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
   return { planState, getStandardData, getPlansData };
 }
