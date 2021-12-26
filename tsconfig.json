@@ -6,6 +6,7 @@
       "esnext"
     ],
     "allowJs": true,
+    "target": "esnext",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,6 +17,8 @@
     "isolatedModules": false,
     "noEmit": true,
     "sourceMap": true,
+    // "module": "commonjs",
+    "importHelpers":false,
     "outDir": "dist",
     "baseUrl": "./src",
     "paths": {
@@ -29,7 +32,7 @@
     "require": ["tsconfig-paths/register"]
   },
   "include": [
-    "src"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",

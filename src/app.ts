@@ -2,11 +2,15 @@ import express from "express";
 import { router } from "./router";
 import mysql from "mysql";
 import { db } from "@/database/sqlConnect";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app: express.Application = express();
 const port = 9000;
-debugger;
-// db.connect();
+
+const t = db.connect();
+
+console.log(db.state);
 // add router
 for (const route of router) {
   app.use(route.getRouter());
