@@ -2,22 +2,25 @@ import React, { Suspense } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes, Link, Router } from "react-router-dom";
-import nameManager from "./store";
-import cardManager from "./store/card";
-import otherManager from "./store/other";
+import listManager from "./store";
+
 import Header from "./components/Header";
 import { render } from "@testing-library/react";
 
 function App() {
-  const { adult, setname } = nameManager();
-  const { cardState } = cardManager();
-  const { otherState } = otherManager();
+  const { planState, getStandardData } = listManager();
+
+  getStandardData();
+  // debugger;
+
   return (
     <div className="App">
       <Header></Header>
       <div className="grid grid-cols-3 w-full">
         <div className="content__layout">
-          <div></div>
+          {planState.Fields.map((list) => (
+            <div key={list}>12</div>
+          ))}
         </div>
         <div className="content__layout">2</div>
         <div className="content__layout">3</div>
