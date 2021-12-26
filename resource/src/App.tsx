@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes, Link, Router } from "react-router-dom";
@@ -9,17 +9,19 @@ import { render } from "@testing-library/react";
 
 function App() {
   const { planState, getStandardData } = listManager();
+  useEffect(() => {
+    getStandardData();
+  }, []);
 
-  getStandardData();
-  // debugger;
-
+  // const t = planState.Fields.map((list) => <div>{list}</div>);
+  // console.log;
   return (
     <div className="App">
       <Header></Header>
       <div className="grid grid-cols-3 w-full">
         <div className="content__layout">
           {planState.Fields.map((list) => (
-            <div key={list}>12</div>
+            <div>{list}</div>
           ))}
         </div>
         <div className="content__layout">2</div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React, { createContext, useReducer, useContext } from "react";
 import axios from "./axios";
 
@@ -16,29 +16,27 @@ interface Name {
 }
 function listManager() {
   const state = useContext(stateContext);
-  const [planState, setCount] = useState<Name>(state);
+  const [planState, setPlanState] = useState<Name>(state);
 
-  const setname = () => {
-    // setCount({ ...adult, name: (adult.name = "test") });
-    // setCount((adult) => (...adult));
-  };
   const getStandardData = () => {
     axios
       .get("planField")
       .then((res) => {
         console.log(res);
-        state.Fields = res.data;
+        setPlanState({ ...planState, Fields: (planState.Fields = res.data) });
       })
       .catch((error) => {
+        debugger;
         console.log(error);
       });
+
     return state.Fields;
   };
   const getPremiumData = () => {
     return state.premium;
   };
 
-  return { planState, setname, getStandardData };
+  return { planState, getStandardData };
 }
 
 export default listManager;
