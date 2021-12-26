@@ -2,16 +2,22 @@ import { useState, useEffect } from "react";
 import React, { createContext, useReducer, useContext } from "react";
 import axios from "./axios";
 
-interface Name {
-  standard: [];
-  premium: [];
+export interface Name {
+  plans: [];
   Fields: [];
   isLoading: boolean;
 }
+export interface Plan {
+  id: number;
+  name: string;
+  general: boolean;
+  specialist: boolean;
+  physiotherapy: boolean;
+  others: boolean;
+}
 
 const initialState = {
-  standard: [],
-  premium: [],
+  plans: [] as Plan[],
   Fields: [],
   isLoading: false,
 } as Name;
@@ -37,8 +43,24 @@ function listManager() {
         debugger;
         console.log(error);
       });
-
-    return state.Fields;
+  };
+  const getPlansData = () => {
+    setLoading();
+    axios
+      .get("plans")
+      .then((res) => {
+        console.log(res);
+        setPlanState({
+          ...planState,
+          plans: (planState.plans = res.data),
+          isLoading: (planState.isLoading = false),
+        });
+        console.log(planState.plans);
+      })
+      .catch((error) => {
+        debugger;
+        console.log(error);
+      });
   };
   const setLoading = () => {
     setPlanState({
@@ -46,11 +68,8 @@ function listManager() {
       isLoading: (planState.isLoading = true),
     });
   };
-  const getPremiumData = () => {
-    return state.premium;
-  };
 
-  return { planState, getStandardData };
+  return { planState, getStandardData, getPlansData };
 }
 
 export default listManager;

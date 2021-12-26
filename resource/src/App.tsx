@@ -2,31 +2,43 @@ import React, { Suspense, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes, Link, Router } from "react-router-dom";
-import listManager from "./store";
+import listManager, { Plan } from "./store";
 
 import Header from "./components/Header";
 import { render } from "@testing-library/react";
 import Spin from "./components/Spin";
+import PlanField from "./components/PlanField";
+import PlanList from "./components/PlanList";
 
 function App() {
-  const { planState, getStandardData } = listManager();
+  const { planState, getStandardData, getPlansData } = listManager();
   useEffect(() => {
     getStandardData();
   }, []);
+  useEffect(() => {
+    getPlansData();
+  }, []);
+  const planLayoutStyle = {
+    gridTemplateRows: "10fr 90fr",
+    height: "-webkit-fill-available",
+  };
 
   return (
-    <div className="App">
-      <Spin toggle={planState.isLoading}></Spin>
-      <Header></Header>
-      <div className="grid grid-cols-3 w-full">
-        <div className="content__layout">
-          {planState.Fields.map((list) => (
-            <div>{list}</div>
+    <div className={` w-full h-full `}>
+      <div
+        className={`grid border border-black rounded-2xl m-10  `}
+        style={planLayoutStyle}
+      >
+        <Spin toggle={planState.isLoading}></Spin>
+        <Header></Header>
+        <div className="grid grid-cols-3 w-full  p-4  ">
+          <PlanField fileds={planState.Fields} />
+          {planState.plans.map((plan: Plan) => (
+            <PlanList plan={plan} />
           ))}
         </div>
-        <div className="content__layout">2</div>
-        <div className="content__layout">3</div>
       </div>
+
       {/* <button onClick={setname}>button</button>
       <div> {adult.name}</div>
       <div className="w-full">
