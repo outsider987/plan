@@ -1,15 +1,17 @@
 import { db } from "@/database/sqlConnect";
-
+import dotenv from "dotenv";
+dotenv.config();
 class PlanModel {
-  getPlanField() {
-    db.connect(function (err) {
+  async getPlanField() {
+    await console.log(process.env.DB_HOST);
+    await db.connect(function (err) {
       if (!err) {
         console.log("Connected");
       } else {
         console.log("Connection Failed");
       }
     });
-    return new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       db.query("SHOW COLUMNS FROM plan", function (err, rows, filed) {
         if (err) reject(err);
         else {
@@ -19,6 +21,7 @@ class PlanModel {
             if (row.Field != "id") nameArrary.push(row.Field);
           });
           resolve(nameArrary);
+          db.destroy();
         }
       });
     });
