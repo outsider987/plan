@@ -51,7 +51,7 @@ Path: /resource
 
 - view
 
-![Untitled](Untitled.png)
+![Untitled](Untitled 1.png)
 
 # Backend :
 
