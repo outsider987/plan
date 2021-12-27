@@ -41,17 +41,6 @@ function App() {
           ))}
         </div>
       </div>
-
-      {/* <button onClick={setname}>button</button>
-      <div> {adult.name}</div>
-      <div className="w-full">
-        <Link className="w-full block" to="/edit">
-          router header
-        </Link>
-        <div>{cardState[1]}</div>
-      </div>
-
-      <button> </button> */}
     </div>
   );
 }
