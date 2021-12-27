@@ -15,6 +15,8 @@ function App() {
   const { planState, getStandardData, getPlansData } = listManager();
   useEffect(() => {
     getStandardData();
+  }, []);
+  useEffect(() => {
     getPlansData();
   }, []);
 
