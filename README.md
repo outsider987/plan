@@ -47,11 +47,11 @@ Path: /resource
 - Docker image is works
 - I set sleep 3s to show api loading animation
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18dafb8d-6bb8-4f7f-ab10-48603c1bd492/Untitled.png)
+![Untitled](Untitled.png)
 
 - view
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/62f83ed6-fd49-4dac-8736-68a3caba3689/Untitled.png)
+![Untitled](Untitled.png)
 
 # Backend :
 
