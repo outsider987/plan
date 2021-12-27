@@ -8,16 +8,14 @@
   "host": "localhost:4000",
   "basePath": "/",
   "tags": [],
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "consumes": [],
   "produces": [],
   "paths": {
     "/planField": {
       "get": {
         "tags": [],
-        "description": "",
+        "description": "get field datas",
         "parameters": [],
         "responses": {}
       }
@@ -25,7 +23,7 @@
     "/plans": {
       "get": {
         "tags": [],
-        "description": "",
+        "description": "get all plans datas",
         "parameters": [],
         "responses": {}
       }
