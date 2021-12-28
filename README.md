@@ -5,6 +5,7 @@ I had nodejs and mysql with docker problem , not resolved ,so please follow step
 sql create datas
 
 ```sql
+CREATE SCHEMA plan;
 create table plan (
 id INT(11) NOT NULL AUTO_INCREMENT,
 name varchar(200) NOT NULL  ,
