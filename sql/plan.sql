@@ -9,5 +9,7 @@ PRIMARY KEY (id));
 
 insert plan (name,general,specialist, physiotherapy,others) 
 VALUES('premium',true,true,true,true);
+insert plan (name,general,specialist, physiotherapy,others) 
+VALUES('standard',true,false,false,false);
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 't52045204';
