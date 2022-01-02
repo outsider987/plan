@@ -59,6 +59,7 @@ Path: /resource
 
 - Docker image is works
 - I set sleep 3s to show api loading animation
+- host is [http://localhost:3000/](http://localhost:4000/)
 
 ![Untitled](Untitled.png)
 
@@ -75,3 +76,4 @@ Path: /resource
   - GET /plans
 - API Document [http://localhost:4000/api/docs/](http://localhost:4000/api/docs/) (Swagger)
 - Docker image is works but had sql connect problem
+- host is [http://localhost:4000/](http://localhost:4000/)
