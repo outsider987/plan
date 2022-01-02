@@ -1,11 +1,20 @@
-I had nodejs and mysql with docker problem , not resolved ,so please follow step that you can see project it is
+## Docker build up:
 
-# Step1:
+- Backend:
+  - build up path: ./
+  - `docker build -t backend .`
+- Frontend:
+  - build up path: /resource
+  - `docker build -t react-frontend .`
+- docker-compose:
+  - we have to build up Frontend and Backend Image that we can go to next step
+  - `docker-compose up`
+
+# Without docker build up Step1:
 
 sql create datas
 
 ```sql
-CREATE SCHEMA plan;
 create table plan (
 id INT(11) NOT NULL AUTO_INCREMENT,
 name varchar(200) NOT NULL  ,
@@ -24,7 +33,7 @@ VALUES('standard',true,false,false,false);
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 't52045204';
 ```
 
-# Step2:
+# Without docker build up Step2:
 
 host is [http://localhost:4000/](http://localhost:4000/)
 
@@ -34,7 +43,7 @@ yarn start
 
 ```
 
-# Step3:
+# Without docker build up Step3:
 
 host is [http://localhost:3000/](http://localhost:4000/)
 
@@ -57,6 +66,8 @@ Path: /resource
 
 ![Untitled](Untitled1.png)
 
+- router: standard and premium
+
 # Backend :
 
 - ResetFul API
@@ -64,15 +75,3 @@ Path: /resource
   - GET /plans
 - API Document [http://localhost:4000/api/docs/](http://localhost:4000/api/docs/) (Swagger)
 - Docker image is works but had sql connect problem
-
-# Docker build up:
-
-- Backend:
-  - path: ./
-  - docker build -t backend .
-  - docker run -d --name backend -p 4000:4000 backend
-  - image is works but had sql connect problem
-- Frontend:
-  - path: /resource
-  - docker build -t frontend.
-  - docker run -d --name frontend -p 3000:3000 frontend
