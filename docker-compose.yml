@@ -18,6 +18,13 @@ services:
         depends_on:
             - mysql
         command: "yarn start"
+    
+    frontend:
+        image: react-frontend
+        container_name: frontend
+        ports:
+            - "3000:3000"
+        command: "yarn webs"
 
         
     mysql:
