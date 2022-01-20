@@ -1,47 +1,24 @@
-import { db } from "@/database/sqlConnect";
+import { query } from "@/database/sqlConnect";
 import dotenv from "dotenv";
+import { RowDataPacket } from "mysql2";
+
 dotenv.config();
 class PlanModel {
-  getPlanField() {
-    console.log(process.env.DB_HOST);
-    db.connect(function (err) {
-      if (!err) {
-        console.log("Connected");
-      } else {
-        console.log("Connection Failed");
-      }
+  async getPlanField() {
+    await console.log(process.env.DB_HOST);
+    const rowDats = (await query("SHOW COLUMNS FROM plan")) as RowDataPacket;
+    let nameArrary = (await []) as any[];
+
+    await console.log(rowDats);
+    await Object.keys(rowDats).forEach(function (key) {
+      let row = rowDats[key];
+      if (row.Field != "id") nameArrary.push(row.Field);
     });
-    return new Promise((resolve, reject) => {
-      db.query("SHOW COLUMNS FROM plan", function (err, rows, filed) {
-        if (err) reject(err);
-        else {
-          let nameArrary = [] as any[];
-          Object.keys(rows).forEach(function (key) {
-            let row = rows[key];
-            if (row.Field != "id") nameArrary.push(row.Field);
-          });
-          resolve(nameArrary);
-          // db.destroy();
-        }
-      });
-    });
+    return await nameArrary;
   }
   getPlans() {
-    db.connect(function (err) {
-      if (!err) {
-        console.log("Connected");
-      } else {
-        console.log("Connection Failed");
-      }
-    });
     return new Promise((resolve, reject) => {
-      db.query("select * from plan", function (err, rows, filed) {
-        if (err) reject(err);
-        else {
-          resolve(rows);
-          // db.destroy();
-        }
-      });
+      query("select * from plan");
     });
   }
 }

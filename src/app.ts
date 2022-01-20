@@ -1,7 +1,6 @@
 import express from "express";
 import { router } from "./router";
 import mysql from "mysql";
-import { db } from "@/database/sqlConnect";
 import dotenv from "dotenv";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
