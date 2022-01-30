@@ -1,27 +1,27 @@
-import { BrowserRouter, Link, Outlet, useRoutes } from "react-router-dom";
-import React, { Children } from "react";
-import loadable from "react-loadable";
+import { useRoutes } from 'react-router-dom'
+import React, { } from 'react'
+import loadable from 'react-loadable'
 
-const LoadingComponent = () => <h3>please wait...</h3>;
+const LoadingComponent = () => <h3>please wait...</h3>
 
 const App = loadable({
-  loader: () => import("~/App"),
-  loading: LoadingComponent,
-});
+  loader: () => import('~/App'),
+  loading: LoadingComponent
+})
 const Standard = loadable({
-  loader: () => import("~/views/Standard"),
-  loading: LoadingComponent,
-});
+  loader: () => import('~/views/Standard'),
+  loading: LoadingComponent
+})
 const Premium = loadable({
-  loader: () => import("~/views/Premium"),
-  loading: LoadingComponent,
-});
+  loader: () => import('~/views/Premium'),
+  loading: LoadingComponent
+})
 
-function HomeRoute() {
+function HomeRoute () {
   const element = useRoutes([
     {
-      path: "/",
-      element: <App />,
+      path: '/',
+      element: <App />
       // children: [
       //   {
       //     path: 'edit2',
@@ -31,15 +31,15 @@ function HomeRoute() {
       // ]
     },
     {
-      path: "standard",
-      element: <Standard />,
+      path: 'standard',
+      element: <Standard />
     },
     {
-      path: "premium",
-      element: <Premium />,
-    },
-  ]);
+      path: 'premium',
+      element: <Premium />
+    }
+  ])
 
-  return element;
+  return element
 }
-export { HomeRoute };
+export { HomeRoute }
