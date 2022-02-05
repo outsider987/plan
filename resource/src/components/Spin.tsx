@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 interface props {
   toggle: boolean;
 }
@@ -18,6 +18,6 @@ const Spin = () => {
         </svg>
       </div>
     </div>
-  );
-};
-export default Spin;
+  )
+}
+export default Spin

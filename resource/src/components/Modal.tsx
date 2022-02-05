@@ -1,10 +1,8 @@
-import React from "react";
+import React from 'react'
 interface props {
   toggle: boolean;
 }
 const Modal: React.FC<props> = ({ toggle, children }) => {
-  const t = toggle;
-  children;
   if (toggle) {
     return (
       <div
@@ -17,14 +15,14 @@ const Modal: React.FC<props> = ({ toggle, children }) => {
       >
         {children}
       </div>
-    );
+    )
   } else {
     return (
       <div
         className=" hidden
           "
       ></div>
-    );
+    )
   }
-};
-export default Modal;
+}
+export default Modal

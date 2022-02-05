@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import './App.css'
 // import { Route, Routes, Link, Router } from 'react-router-dom'
 import listManager, { Plan } from './store'
@@ -22,11 +22,13 @@ function App () {
     gridTemplateRows: '10fr 90fr',
     height: '-webkit-fill-available'
   }
+  const [state, setstate] = useState('useState')
 
   return (
     <div className={' w-full h-full '}>
+      <div>{state}</div>
       <div
-        className={'grid border border-black rounded-2xl m-10  '}
+        className={'grid border border-black rounded-2xl m-10'}
         style={planLayoutStyle}
       >
         <Modal toggle={planState.isLoading}>
@@ -35,7 +37,7 @@ function App () {
 
         <Header></Header>
         <div className="grid grid-cols-3 w-full  p-4  ">
-          <PlanField fileds={planState.Fields} />
+          <PlanField fileds={planState.Fields} test={setstate} />
           {planState.plans.map((plan: Plan) => (
             <PlanList key={plan.id} plan={plan} />
           ))}
